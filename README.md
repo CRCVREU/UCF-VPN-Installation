@@ -67,12 +67,13 @@ using the UCF VPN, you will be able to login to UCF’s GPU cluster, referred to
     VPN.
 
 
-Notes: (a) For Troubleshooting FAQ’s, visit .
+Notes:  
 
-```
+(a) For Troubleshooting FAQ’s, visit [UCF's VPN Page](https://ucf.service-now.com/ucfit?id=kb_article&sys_id=ff89f4764f45e200be64f0318110c763).  
+
 (b) The UCF VPN only “tunnels” traffic that has “.ucf.edu” in the URL. So for example,
 if you check to see if your IP address has changed once connecting to the Client, it will
 not reflect a change. However, for any “.ucf.edu” resource, it will appear as if your on
 UCF’s Main Campus.
-```
+
 
