@@ -29,7 +29,7 @@ using the UCF VPN, you will be able to login to UCF’s GPU cluster, referred to
 </p>
 
 3. On the following page, select “Continue” to UCF User Agreement. You will then be re-
-    directed to a Download page. Select “Download for{Your OS}”, as shown in **Figure 3.1**.
+    directed to a Download page. Select “Download for {Your OS}”, as shown in **Figure 3.1**.
 
 <p align="center">
   <img width="450" src="files/download.png">
