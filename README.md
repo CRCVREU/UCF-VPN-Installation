@@ -21,7 +21,7 @@ using the UCF VPN, you will be able to login to UCF’s GPU cluster, referred to
    as shown in **Figure 2** below. Enter your Username (UCF ID) and Password.
 
 <p align="center">
-  <img width="390" src="files/student.png">
+  <img width="350" src="files/student.png">
 </p>
 
 <p align="center">
