@@ -10,10 +10,10 @@ This guide assumes:
 2. You can open a PowerShell/Terminal prompt.
   - [Click here for a cheat sheet for Linux Terminal commands](https://cheatography.com/davechild/cheat-sheets/linux-command-line/)
   - [Alternate Cheat Sheet](https://phoenixnap.com/kb/wp-content/uploads/2020/02/linux-commands-cheat-sheet-phoenixnap.pdf)
-  - Remember, you can use the `TAB` key to autocomplete commands in your Terminal.
+  - Remember, you can use the `TAB` key to auto complete commands in your Terminal.
     - Some of these, like `cd` and `ls` work in Windows PowerShell as well.
 
-Please click the link below to the OS you will be working from regulary. I highly suggest using any Linux distro (Ubuntu would be the easiest to setup) as your regular work environment, as setting up and maintaining programming environments in Windows is a hassle at best and a nightmare at worst. **You can also use Windows Subsystem for Linux**, which gives you access to a full Debian Linux system through the command line. Check it out [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10) if you want to set it up.
+Please click the link below to the OS you will be working from regularly. I highly suggest using any Linux distro (Ubuntu would be the easiest to setup) as your regular work environment, as setting up and maintaining programming environments in Windows is a hassle at best and a nightmare at worst. **You can also use Windows Subsystem for Linux**, which gives you access to a full Debian Linux system through the command line. Check it out [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10) if you want to set it up.
 
 *However* for the purposes of this tutorial any OS will work mostly the same.
 
@@ -46,7 +46,7 @@ RestartNeeded : False
 If it isn't, refer to [this guide](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse).
 
 **Important Note:**    
-If you installed choclatey/MinGW/Cygwin on your computer, by default it'll try to use those program's OpenSSH installation, and this will cause pathing issues to Window's OpenSSH. You'll need to edit your system's PATH variable to enforce it to use Window's OpenSSH installation. At this point, it would be difficult to write something comphrensive as your environment will be different from mine. My recommendation
+If you installed choclatey/MinGW/Cygwin on your computer, by default it'll try to use those program's OpenSSH installation, and this will cause pathing issues to Window's OpenSSH. You'll need to edit your system's PATH variable to enforce it to use Window's OpenSSH installation. At this point, it would be difficult to write something comprehensive as your environment will be different from mine. My recommendation
 is to follow [this](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) guide on how to edit your PATH variable, and move the `C:\Windows\System32\OpenSSH\` to the top of the list and save.
 
 ## Decrypting RSA Keys
