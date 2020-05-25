@@ -1,5 +1,5 @@
 # SSH Newton Setup
-Author: @brandons209
+Author: [@brandons209](https://github.com/brandons209)
 
 
 This short guide will get your SSH keys decrypted and your environment setup so you can SSH to Newton, and use SCP/SFTP to transfer files to/from Newton.
@@ -47,7 +47,7 @@ If it isn't, refer to [this guide](https://docs.microsoft.com/en-us/windows-serv
 
 **Important Note:**    
 If you installed choclatey/MinGW/Cygwin on your computer, by default it'll try to use those program's OpenSSH installation, and this will cause pathing issues to Window's OpenSSH. You'll need to edit your system's PATH variable to enforce it to use Window's OpenSSH installation. At this point, it would be difficult to write something comprehensive as your environment will be different from mine. My recommendation
-is to follow [this](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) guide on how to edit your PATH variable, and move the `C:\Windows\System32\OpenSSH\` to the top of the list and save.
+is to follow [this](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) guide on how to edit your PATH variable, and move the `C:\Windows\System32\OpenSSH\` to the bottom of the list and save.
 
 ## Decrypting RSA Keys
 If you are Windows, open a PowerShell prompt now, on macOS/Linux open up your Terminal.
