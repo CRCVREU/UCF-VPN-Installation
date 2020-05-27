@@ -16,11 +16,13 @@ With OpenSSH, we have two protocols we can use for transferring files: `scp` and
 
 `sftp` on the other hand is an interactive program to get and send files to Newton, which is good if you want to explore your directories and pull specific files one at a time.
 
+These actually use different protocols, so you can look up exactly how each of these work.
+
 Basic scp useage (`-r` flag for directories):
 * Send: `scp localfile newton:<remote directory on newton>`
   * `scp -r localdirectory newton:~/`
   * This sends the folder localdirectory to your home directory on newton
-* Receive: `scp newton:<remove file> localdirectory`
+* Receive: `scp newton:<remote file> localdirectory`
   * `scp -r newton:~/code .`
   * This receives the entire code folder on Newton and moves to the current local directory you are in.
 
@@ -141,7 +143,8 @@ Now that our environment is setup, lets learn how to run our programs using Newt
 
 ## SLURM Basics
 [Newton SLURM Wiki](http://newton.i2lab.ucf.edu/wiki/Help:Slurm)
-What is SLURM? SLURM stands for: `Simple Linux Utility for Resource Management`. It allows for a computer to distrubute its resources to many users efficently.
+
+What is SLURM? SLURM stands for: `Simple Linux Utility for Resource Management`. It allows for a computer to distribute its resources to many users efficiently.
 
 Normally, on your local computer, when you run a program your OS will use as much of your system's resources as needed, or whatever is available. However, one a large server cluster as Newton we don't want one user hogging up all the resources whenever they run a program.
 
@@ -156,7 +159,7 @@ Newton has:
 * All total 640 cores and 40 GPUs
 * Half the nodes have 16 GB GPU cards, the other half have 32 GB cards
 
-So, SLURM manages all the compute nodes and distrubutes resources as needed to user's programs. Think of it as a printer queue. Although, it is a bit more complicated to submit a job instead of just clicking print. From now on, when I mention `jobs` I am referencing the programs that are submitted to the SLURM manager to run by users.
+So, SLURM manages all the compute nodes and distributes resources as needed to user's programs. Think of it as a printer queue. Although, it is a bit more complicated to submit a job instead of just clicking print. From now on, when I mention `jobs` I am referencing the programs that are submitted to the SLURM manager to run by users.
 
 Depending on the priority of your user and how much you have used, you may have to wait to run jobs. There is also some resources that you can use that won't count towards your usage, like slower GPUs or only one or two CPU cores.
 
@@ -271,7 +274,7 @@ There are two ways to run our jobs, using `srun` or `sbatch` with SLURM scripts.
 #### SLURM scripts
 A SLURM script is a shell script that specifies some information about what resources you need to run the program, environment setup and the commands to actually run the program.
 
-Lets just look at an example script and break down each part. For reference, lines marked `#SBATCH` are SLURM arguments for specifing different things like amount of resources needed, job name, etc. Everything else are commands that are ran just like the shell scripts we looked at in the command line tutorial.
+Lets just look at an example script and break down each part. For reference, lines marked `#SBATCH` are SLURM arguments for specifying different things like amount of resources needed, job name, etc. Everything else are commands that are ran just like the shell scripts we looked at in the command line tutorial.
 
 This script below contains everything you need to run a job, and also some extra statistics and file organization to keep things from getting hetic.
 
@@ -405,13 +408,15 @@ A few extra things on the script above:
 * MPI is a program that is used to distrubute the execution of your program across multiple nodes, and is needed when using more than one node. It provides an interface for the code executing on each node to communicate with each other. Since the program isn't running on a single computer the code is ran in parallel on multiple nodes and the output is put together using MPI.
 * This specific script runs a python program, but if you want to run something else just replace the python program with whatever else you want to run.
 
-Thats the basics and some extras for SLURM scripts! Lets run submit the job now.
+Thats the basics and some extras for SLURM scripts! Lets submit the job now.
+
 ***IMPORTANT:*** This SLURM scripts assumes you run the command below **in the same directory where your code is stored**. So, for example if your python code is supposed to be ran in the `~/mycode/` directory, you need to `cd` to that directory, put the job.slurm in that directory, then run the below command.
+
 ```bash
 $ sbatch job.slurm
 ```
 
-**Note:** the same options you use in the script file marked with `#SBATCH` you can use as **flags and arguments** for the command line `srun` program.
+**Note:** the same options you use in the script file marked with `#SBATCH` you can use as **flags and arguments** for the command line `srun` program, explained below.
 
 #### SRUN
 You can use the same arguments above in an interactive program called `srun` to run your jobs. It's usage is simple:
