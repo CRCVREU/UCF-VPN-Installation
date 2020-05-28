@@ -331,7 +331,7 @@ export job_name=""
 ## this helps keeps all your logs organized, although not needed.
 ## its good to hardcode this path so there isnt issues, replace <user> with your username
 export log_dir="/home/<user>/job_logs/$job_name-$SLURM_JOB_ID"
-mkdir $log_dir
+mkdir -p $log_dir
 export debug_logs="$log_dir/job_$SLURM_JOB_ID.log"
 export benchmark_logs="$log_dir/job_$SLURM_JOB_ID.log"
 
@@ -387,9 +387,9 @@ export python=""
 ## the `time` command will measure how long your program took to ran and output it
 
 ## Multi-gpu:
-#nvidia-smi && time mpirun -np $SLURM_NTASKS python $file $args
+#nvidia-smi && time mpirun -np $SLURM_NTASKS $python $file $args
 ## Single-gpu:
-nvidia-smi && time python $file $args
+nvidia-smi && time $python $file $args
 sleep 3
 
 echo "Ending time: $(date)" >> $benchmark_logs
