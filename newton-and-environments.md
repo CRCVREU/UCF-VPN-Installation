@@ -10,7 +10,7 @@ You'll need to get your local code up to Newton, and also pull output files from
 You can use a program like `MobaXterm` that has a built in file explorer to easily pull and push files to/from Newton. There are many programs to do this, and I'll leave you to find something you like to use.
 
 #### Command Line
-With OpenSSH, we have two protocols we can use for transferring files: `scp` and `sftp`.
+With OpenSSH, we have two programs we can use for transferring files: `scp` and `sftp`.
 
 `scp` is a command to transfer files/folders to and from Newton, it is not interactive, you need to know what files you want locally or on Newton when running the command.
 
@@ -50,10 +50,13 @@ You can't run most programs (except commands like cd and rm) in this `sftp` prom
 Our bread and butter commands are:
 * `put localfile remotefile` - put a file on our local computer to newton
 * `get remotefile localfile` - get a file on newton and put it on our local computer
-* `pwd`
-* `ls`
-* `cd`
+* `pwd` - get working directory on the remote computer
+* `ls` - check directory on the remote computer
+* `cd` - change directory on the remote computer
+* `lcd` - cd directory on the local computer
 * `!` - this will run a command in a shell prompt, like if you logged in normally into Newton.
+
+To move around your local computer for files use `lcd` and `lls` to check local files. And to browse the remote computer use the standard `cd` and `ls`. Basically, if you want to run a command on the local computer you add a `l` to the beginning of the command.
 
 Try it out now!
 
@@ -328,7 +331,7 @@ export job_name=""
 ## this helps keeps all your logs organized, although not needed.
 ## its good to hardcode this path so there isnt issues, replace <user> with your username
 export log_dir="/home/<user>/job_logs/$job_name-$SLURM_JOB_ID"
-mkdir $log_dir
+mkdir -p $log_dir
 export debug_logs="$log_dir/job_$SLURM_JOB_ID.log"
 export benchmark_logs="$log_dir/job_$SLURM_JOB_ID.log"
 
@@ -384,9 +387,9 @@ export python=""
 ## the `time` command will measure how long your program took to ran and output it
 
 ## Multi-gpu:
-#nvidia-smi && time mpirun -np $SLURM_NTASKS python $file $args
+#nvidia-smi && time mpirun -np $SLURM_NTASKS $python $file $args
 ## Single-gpu:
-nvidia-smi && time python $file $args
+nvidia-smi && time $python $file $args
 sleep 3
 
 echo "Ending time: $(date)" >> $benchmark_logs
